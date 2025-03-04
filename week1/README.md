@@ -1,4 +1,3 @@
-```bash
 ### Instruction for p1 program
 1. Compile the program:
    ```bash
@@ -31,4 +30,3 @@
    ```bash
    ./a.out num1 operator num2
    ```
-```
