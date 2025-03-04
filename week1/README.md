@@ -20,7 +20,18 @@
    ./a.out < input.txt > output.txt
    ```
 
-### Instruction for the third p1 program
+### Instruction for the third p3 program
+1. Compile the program:
+   ```bash
+   gcc p3.c
+   ```
+
+2. Run the program with arguments:
+   ```bash
+   ./a.out > filename.txt
+   ```
+
+### Instruction for the fourth calc program
 1. Compile the program:
    ```bash
    gcc p1.c
