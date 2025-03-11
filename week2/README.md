@@ -1,6 +1,6 @@
 # Compilation and Execution Instructions
 
-## For p1 and p2:
+## For p3:
 
 1. Compile the code:
    ```bash
@@ -8,12 +8,24 @@
    ```
    or for p2:
    ```bash
-   cc p2.c
+   cc p3.c
    ```
 
 2. Execute the compiled program:
    ```bash
    ./a.out
+   ```
+
+## For p2 and p1:
+
+1. Compile the code:
+   ```bash
+   cc p2.c
+   ```
+
+2. Execute the compiled program:
+   ```bash
+   ./a.out "filename"
    ```
 
 ## For p4:
@@ -23,11 +35,9 @@
    cc p4.c
    ```
 
-2. Change the file path in the code according to your specific requirement.
-
-3. Execute the compiled program:
+2. Execute the compiled program:
    ```bash
-   ./a.out
+   ./a.out "filename"
    ```
 
 ## For p5:

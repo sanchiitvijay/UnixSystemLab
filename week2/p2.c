@@ -4,12 +4,18 @@
 #include <unistd.h>
 #include <errno.h>
 
-int main() {
+int main(int argc, char *argv[]) {
+    // Check if a filename was provided as a command-line argument
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
 
-    const char *filename = "example.txt";
+    const char *filename = argv[1];  // The filename from the command-line argument
 
     mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
 
+    // Create the file with the specified name
     int fd = creat(filename, mode);
 
     if (fd == -1) {
@@ -17,8 +23,10 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    printf("File '%s' created successfully with file descriptor: %d\n", filename, fd);
+    // Success message after file is created
+    printf("File \"%s\" has been created successfully.\n", filename);
 
+    // Close the file descriptor
     if (close(fd) == -1) {
         perror("close() error");
         exit(EXIT_FAILURE);
