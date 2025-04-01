@@ -22,7 +22,7 @@ int main(int argc,char* argv[]){
         printf("Access Time %s\nModification Time%s\n",ctime(&statbuf_1.st_atime),ctime(&statbuf_1.st_mtime));
 
         times.modtime = statbuf_2.st_mtime;
-        times.actime = statbuf_2.st_mtime;
+        times.actime = statbuf_2.st_atime;
         if(utime(argv[1],&times)<0)
                 printf("Error copying time \n");
 
