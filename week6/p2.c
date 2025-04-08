@@ -19,4 +19,23 @@ int main(void){
         printf("after longjmp:\n");
         printf("globval = %d, autoval = %d, regival = %d, volaval = %d, statval = %d\n", globval, autoval, regival, volaval, statval);
         exit(0);
+        }
+
+        globval = 95; autoval = 96; regival = 97; volaval = 98;
+        statval = 99;
+        f1(autoval, regival, volaval, statval); /* never returns */
+                exit(0);
 }
+
+static void f1(int i, int j, int k, int l){
+        printf("in f1():\n");
+        printf("globval = %d, autoval = %d, regival = %d, volaval = %d, statval = %d\n", globval, i, j, k, l);
+        globval=10000;
+        j=10000;
+        f2();
+}
+
+static void f2(void){
+        longjmp(jmpbuffer, 1);
+}
+
