@@ -1,3 +1,5 @@
+// Write a C program to demonstrate the creation of soft links and  hard links.
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -5,23 +7,16 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-int main(int argc, char *argv[])
-{
-    if (argc == 3)
-    {
+int main(int argc, char *argv[]){
+    if (argc == 3){
         printf("Hard linking %s and %s\n", argv[1], argv[2]);
-        if (link(argv[1], argv[2]) == 0)
-            printf("Hard link created successfully.\n");
-        else
-            printf("Error creating hard link");
+        link(argv[1], argv[2]);
+        printf("Hard link created successfully.\n");
     }
-    else if (argc == 4)
-    {
+    else if (argc == 4){
         printf("Soft linking %s and %s\n", argv[1], argv[2]);
-        if (symlink(argv[1], argv[2]) == 0)
-            printf("Soft link created successfully.\n");
-        else
-            printf("Error creating soft link");
+        symlink(argv[1], argv[2]);
+        printf("Soft link created successfully.\n");
     }
 
     return 0;

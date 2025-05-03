@@ -1,21 +1,19 @@
+
+// Write a C program that takes the file name as an argument and prints the type of the given file.
+
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdlib.h>
 
-int main(int argc, char *argv[])
-{
-    int i;
+int main(int argc, char *argv[]){
     struct stat buf;
     char *ptr;
-    for (i = 1; i < argc; i++)
-    {
+    for (int i = 1; i < argc; i++){
+
         printf("%s: ", argv[i]);
-        if (lstat(argv[i], &buf) < 0)
-        {
-            printf("lstat error");
-            continue;
-        }
+        lstat(argv[i], &buf);
+        
         if (S_ISREG(buf.st_mode))
             ptr = "regular";
         else if (S_ISDIR(buf.st_mode))

@@ -1,20 +1,16 @@
+// Write a C program to display various details of a file using stat structure (At least 5 fields).
+
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <time.h>
 
-int main(int argc, char *argv[])
-{
-    if (argc != 2){
-        printf("Usage: %s <filename>\n", argv[0]);
-        return 1;
-    }
+int main(int argc, char *argv[]){
 
     struct stat fileStat;
 
-    if (lstat(argv[1], &fileStat) < 0)
-        return 1;
+    lstat(argv[1], &fileStat);
     
     printf("File Name: %s\n", argv[1]);
     printf("File Size: %lu bytes\n", fileStat.st_size);
