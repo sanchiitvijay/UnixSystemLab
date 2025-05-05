@@ -1,22 +1,27 @@
 // Write a program to read n characters from a file and append them back to the same file using dup2 function.
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
+#include <string.h>
 
-int main(){
-    char buf[50];
-    int fd1 = open("test.txt", O_RDWR, 0));
-    int fd2 = dup(fd1);
+#define MAX_BUFFER_SIZE 1024
 
-    printf("%d %d \n", fd1, fd2);
-
-    read(fd1, buf, 10);
-    lseek(fd2, 0L, SEEK_END);
-    write(fd2, buf, 10);
-    printf("%s\n", buf);
-
+int main() {
+    char filename[] = "input.txt";
+    int n = 10;
+    
+    int fd = open(filename, O_RDWR);
+    char buffer[MAX_BUFFER_SIZE];
+    
+    int bytes_read = read(fd, buffer, n);
+    close(fd);
+    
+    fd = open(filename, O_WRONLY | O_APPEND);
+    dup2(fd, STDOUT_FILENO);
+    printf("%.*s", bytes_read, buffer);
+    close(fd);
+    printf("\nSuccessfully appended the characters to the file.\n");
     return 0;
 }
