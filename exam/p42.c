@@ -6,16 +6,13 @@
 #include <fcntl.h>
 #include <string.h>
 
-#define MAX_BUFFER_SIZE 1024
-
 int main() {
     char filename[] = "input.txt";
-    int n = 10;
     
     int fd = open(filename, O_RDWR);
-    char buffer[MAX_BUFFER_SIZE];
+    char buffer[1024];
     
-    int bytes_read = read(fd, buffer, n);
+    int bytes_read = read(fd, buffer, 10);
     close(fd);
     
     fd = open(filename, O_WRONLY | O_APPEND);
