@@ -1,19 +1,20 @@
 ---
 Commands to Execute:
-vi main.c
+vi q1.c
 vi p1.c
-cc -o p1 p1.c
-cc main.c
+cc p1.c -o p1
+cc q1.c
 ./a.out 
 
 ---
-vi program_name.c
+vi q2.c
 vi p2.c 
-cc -o main main.c
-cc -o p2 p2.c
-/main_program 5 6 (these numbers can be anything) 
+cc p2.c -o p2
+cc q2.c
+./a.out (these numbers can be anything) 
 
 ---
 vi p3.c
 cc p3.c
-./a.out 
+./a.out
+ps aux 
