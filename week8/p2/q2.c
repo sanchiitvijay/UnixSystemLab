@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
         printf("Fork failed. Error code: %d\n", errno);
         exit(0);
     } else if (pid == 0) {
-        execl("./p23", "p23", argv[1], argv[2], (char *)NULL);
+        execl("./p2", "p2", argv[1], argv[2], (char *)NULL);
         printf("execl failed. Error code: %d\n", errno);
         exit(EXIT_FAILURE);
     } else {
