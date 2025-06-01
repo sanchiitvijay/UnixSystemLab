@@ -20,12 +20,12 @@ int main(int argc, char *argv[]) {
     pid_t pid = fork();
 
     if (pid < 0) {
-        printf("Fork failed. Error code: %d\n", errno);
+        printf("Fork failed. Error code\n");
         exit(0);
     } else if (pid == 0) {
         execl("./p23", "p23", argv[1], argv[2], (char *)NULL);
-        printf("execl failed. Error code: %d\n", errno);
-        exit(EXIT_FAILURE);
+        printf("execl failed. Error code\n");
+        exit(0);
     } else {
         int status;
         waitpid(pid, &status, 0);
