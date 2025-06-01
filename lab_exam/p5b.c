@@ -4,14 +4,15 @@
 #include <signal.h>
 #include <unistd.h>
 
+int cnt = 0;
 void handler(int signum) {
-    printf("SIGINT received. Custom handler executed.\n");
-
-    struct sigaction sa;
-    sa.sa_handler = SIG_DFL;
-    sigemptyset(&sa.sa_mask);
-    sa.sa_flags = 0;
-    sigaction(SIGINT, &sa, NULL);
+    if(cnt == 0) {
+        printf("SIGNIT received. custom handler executed.\n");
+        cnt++;
+    }
+    else {
+        exit(0);
+    }
 }
 
 int main() {
