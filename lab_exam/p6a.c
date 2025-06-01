@@ -10,14 +10,14 @@ int main() {
     char filename[] = "input.txt";
     
     int fd = open(filename, O_RDWR);
-    char buffer[1024];
+    char buffer[10];
     
     int bytes_read = read(fd, buffer, 10);
     close(fd);
     
     fd = open(filename, O_WRONLY | O_APPEND);
     dup2(fd, STDOUT_FILENO);
-    printf("%.*s", bytes_read, buffer);
+    printf("%d %s", bytes_read, buffer);
     close(fd);
     printf("\nSuccessfully appended the characters to the file.\n");
     return 0;
