@@ -23,8 +23,11 @@ int main() {
 }
 
 // interpreter.sh
-
+#!/bin/bash
 ./echoall interpreter_arg "$1"
+
+
+// use this cmd to make it executable
 chmod +x interpreter.sh
 
 
